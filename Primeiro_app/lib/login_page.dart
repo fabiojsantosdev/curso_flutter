@@ -11,8 +11,7 @@ class _LoginPageState extends State<LoginPage> {
   String email = '';
   String password = '';
 
-
-  Widget _body(){
+  Widget _body() {
     return SingleChildScrollView(
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
@@ -26,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
+            children: [
               Container(
                 width: 120,
                 height: 120,
@@ -41,12 +40,23 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
-                    labelText: 'email',
-                    border: OutlineInputBorder()
-                ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 0.8), // Altera cor da borda OutlineInputBorder
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.white,
+                          width:
+                              0.8), // Altera cor da borda OutlineInputBorder ao clicar
+                    ),
+                    labelText: 'Email',
+                    labelStyle: TextStyle(fontFamily: 'Roboto', fontSize: 12, color: Colors.white), //Altera cor da fonte labelText
+                    border: OutlineInputBorder()),
               ),
               const SizedBox(
-                height:  20,
+                height: 20,
               ),
               TextField(
                 onChanged: (text) {
@@ -54,30 +64,42 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 obscureText: true,
                 decoration: const InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 0.8), // Altera cor da borda OutlineInputBorder
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.white,
+                          width:
+                              0.8), // Altera cor da borda OutlineInputBorder ao clicar
+                    ),
                     labelText: 'Password',
-                    border: OutlineInputBorder()
-                ),
+                    labelStyle: TextStyle(fontFamily: 'Roboto', fontSize: 12, color: Colors.white), //Altera cor da fonte labelText
+                    border: OutlineInputBorder()),
               ),
               const SizedBox(
-                height:  20,
+                height: 20,
               ),
-
-              Container(
+              SizedBox(
                 width: 100,
-                height: 40,
+                height: 30,
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white, //Altera cor botão
+                    onPrimary: Colors.black, //Altera cor texto botão
+                  ),
                   onPressed: () {
-                    if (email == 'fabiodev@gmail.com' && password == '212527'){
+                    if (email == 'fabiodev@gmail.com' && password == '212527') {
                       Navigator.of(context).pushReplacementNamed('/home');
                     } else {
                       print('email ou senha invalidos');
                     }
                   },
-                  child: const Text(
-                      'Entrar'
+                  child: const Text('Entrar'),
                   ),
                 ),
-              ),
             ],
           ),
         ),
@@ -88,17 +110,18 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white.withAlpha(180),
-      body: Stack(
-        children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-              child: Image.asset('assets/images/background.jpg', fit: BoxFit.cover,)),
-          _body(),
-        ],
-      )
-    );
+        backgroundColor: Colors.white.withAlpha(180),
+        body: Stack(
+          children: [
+            SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: Image.asset(
+                  'assets/images/background.jpg',
+                  fit: BoxFit.cover,
+                )),
+            _body(),
+          ],
+        ));
   }
 }
-
