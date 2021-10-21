@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: 120,
                 height: 120,
                 child: Image.asset('assets/images/icon_login.png'),

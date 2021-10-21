@@ -25,30 +25,18 @@ class HomePageState extends State<HomePage> {
         ],
       ),
 
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
 
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Clicou Vezes: $counter'),
+            Text('Clicou Vezes: $counter', style: const TextStyle(
+                fontSize: 20,color: Colors.deepPurple,fontWeight: FontWeight.bold),
+            ),
             Container(
               height: 40,
-            ),
-            const SizedBox(
-              height: 40,
-              width: 150,
-              child: TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                      Icons.account_circle),
-                  border: OutlineInputBorder(
-                  ),
-                  labelText: 'Custo',
-                ),
-                textAlign: TextAlign.center,
-              ),
             ),
           ],
         ),
