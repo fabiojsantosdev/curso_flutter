@@ -16,11 +16,33 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+             UserAccountsDrawerHeader(
+              currentAccountPicture: ClipRRect(borderRadius: BorderRadius.circular(40.0),
+                child: Image.network(
+                    'https://avatars.githubusercontent.com/u/92104539?s=400&u=a4f41028a021575b9fca955847fec53e5c56e9e7&v=4'
+                ),
+              ),
+               accountName: const Text('Fabio Santos'),
+                 accountEmail: const Text('fabiojsantosdev@gmail.com'),),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Sair'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            )
+          ],
+        ),
+      ),
+
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         title: const Text('Primeiro App'),
         titleTextStyle: const TextStyle(fontStyle: FontStyle.italic,fontSize: 20),
-        actions: [
+        actions: const [
           CustomSwitch()
         ],
       ),
@@ -57,6 +79,8 @@ class HomePageState extends State<HomePage> {
 }
 
 class CustomSwitch extends StatelessWidget {
+  const CustomSwitch({Key? key}) : super(key: key);
+
 
 
   @override

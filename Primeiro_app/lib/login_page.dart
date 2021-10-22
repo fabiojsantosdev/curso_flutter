@@ -26,11 +26,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 120,
-                height: 120,
-                child: Image.asset('assets/images/icon_login.png'),
-              ),
+              Image.asset('assets/images/icon_login_withe.png'),
               Container(
                 height: 40,
               ),
@@ -91,12 +87,31 @@ class _LoginPageState extends State<LoginPage> {
                     onPrimary: Colors.black, //Altera cor texto botão
                   ),
                   onPressed: () {
-                    if (email == 'fabiodev@gmail.com' && password == '212527') {
+                    if  (email == 'fabio' && password == '123'){
                       Navigator.of(context).pushReplacementNamed('/home');
                     } else {
-                      print('email ou senha invalidos');
-                    }
-                  },
+                    (email.isEmpty || password.isEmpty);
+                    showDialog<void>(
+                    context: context,
+                    barrierDismissible: false, // user must tap button!
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Algo deu errado!'),
+                        content: const Text('Favor informar todos campos.'),
+                        actions: <Widget>[
+                          TextButton(
+                            child: const Text('OK'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                             },
+                            ),
+                           ],
+                          );
+                         },
+                        );
+                       }
+                      },
+
                   child: const Text('Entrar'),
                   ),
                 ),
@@ -105,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  }
+  }// Final Widget
 
   @override
   Widget build(BuildContext context) {
