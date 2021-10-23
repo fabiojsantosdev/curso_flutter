@@ -3,6 +3,8 @@ import 'package:conversor_moeda/app/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
+
 
 
   @override

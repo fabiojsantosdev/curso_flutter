@@ -18,7 +18,7 @@ class Currency_Box extends StatelessWidget {
         Expanded(
           flex: 1,
           child: Padding(
-            padding: const EdgeInsets.only(left: 2,right: 20),
+            padding: const EdgeInsets.only(left: 2,right: 10),
             child: SizedBox(
               height: 56,
               child: DropdownButton<CurrencyModel>(
@@ -40,6 +40,8 @@ class Currency_Box extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(right: 2),
             child: TextField(
+
+              keyboardType: TextInputType.number,
               controller: controller,
               decoration: const InputDecoration(
                   focusedBorder: UnderlineInputBorder (borderSide: BorderSide(color: Colors.amber))
