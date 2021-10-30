@@ -23,6 +23,15 @@ class _HomePageState extends State<HomePage> {
       itemBuilder: (context, index) {
         var todo = controller.todos[index];
         return   ListTile(
+          leading: Checkbox(
+            value: todo.completed,
+            onChanged: (bool? value) {
+              setState(() {
+                todo.completed = value!;
+              });
+            },
+
+          ),
           title: Text(todo.title),
         );
       },);
@@ -46,10 +55,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  intState(){
+
+  @override
+  void initState() {
     super.initState();
     controller.start();
   }
+
 
   stateManagement(HomeState state) {
     switch(state){
