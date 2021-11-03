@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.calcst.calcst">
+    package="com.jsantos.guiaapi.guia_api">
    <application
-        android:label="CaculadoraST"
+        android:label="guia_api"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
