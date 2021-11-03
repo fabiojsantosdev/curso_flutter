@@ -6,7 +6,6 @@ import 'package:http/http.dart' as http;
 class UserHttpRepository implements IUserRepository {
   @override
   Future<List<UserModel>> findAllUsers() async {
-    // TODO: implement finalAllUsers
     var url = 'https://618046518bfae60017adfa51.mockapi.io/api/users';
     final response = await http.get(Uri.parse(url));
     final List<dynamic> responseMap = jsonDecode(response.body);
